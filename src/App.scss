@@ -49,3 +49,31 @@
     width: 60%;
   }
 }
+
+.search {
+  position: relative;
+  .search-results {
+    margin:0;
+    padding: 0;
+    width: 100%;
+    position:absolute;
+    background:white;
+
+    li {
+      list-style: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding:10px;
+      border:1px solid #e6e6e6;
+      cursor: pointer;
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+  }
+}

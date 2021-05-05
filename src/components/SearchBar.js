@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchResult from './SearchResult';
 
 class SearchBar extends React.Component {
 
@@ -18,16 +19,27 @@ class SearchBar extends React.Component {
         fetch(searchEndpoint).then(response => response.json()).then((data) => {
             console.log(data)
             this.setState(
-                { searchResults: data}
+                { searchResults: data }
             )
         })
 
     }
 
     render(){
-       return (
-           <input type="text" ref={this.queryRef} onChange={this.searchIngredients} className="search-ingredient" placeholder="Search ingredient"></input>
-       )
+        const searchResults = this.state.searchResults;
+        return (
+           <div class="search">
+                <input type="text" ref={this.queryRef} onChange={this.searchIngredients} className="search-ingredient" placeholder="Search ingredient"></input>
+                <ul className="search-results">
+                    { Object.keys(searchResults).map(key => 
+                        <SearchResult 
+                            key={searchResults[key].name} 
+                            searchResult={searchResults[key]}
+                        /> 
+                    )}
+                </ul>
+           </div>
+        )
    } 
 }
 
