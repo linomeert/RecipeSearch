@@ -11,13 +11,21 @@ class App extends React.Component {
     ingredients: {},
     recipes: {}
   }
+
+  addIngredient = ing => {
+    console.log(ing)
+    const ingredients = {...this.state.ingredients}
+    ingredients[ing.name] = ing
+    console.log(ingredients)
+    this.setState({ ingredients })
+  }
   
   render() {
     return ( 
       <div className="recipe-app">
          <div className="ingredients">
             <h2>Ingredients</h2>
-            <SearchBar searchIngredients={this.props.searchIngredients}/>
+            <SearchBar addIngredient={this.addIngredient}/>
             <Ingredients/>
         </div>
         <div className="recipes">
