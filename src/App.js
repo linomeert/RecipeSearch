@@ -1,25 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import SearchBar from './components/SearchBar';
+import Recipes from './components/Recipes';
+import Ingredients from './components/Ingredients';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return ( 
+        
+      <div className="RecipeFinder">
+         <div className="ingredients">
+            <h2>Ingredients</h2>
+            <SearchBar/>
+            <Ingredients/>
+        </div>
+        <div className="recipes">
+            <h2>recipes</h2>
+            <Recipes/>
+        </div>
+      </div>
+    );
+  }
 }
+
 
 export default App;
