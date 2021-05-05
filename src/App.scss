@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.recipe-app {
+  display: flex;
+  padding: 20px;
+
+  .ingredients {
+    width: 40%;
+  }
+  .recipes {
+    width: 60%;
+  }
+}
