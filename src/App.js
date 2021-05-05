@@ -19,7 +19,7 @@ class App extends React.Component {
     console.log(ingredients)
     this.setState({ ingredients })
   }
-  
+
   render() {
     return ( 
       <div className="recipe-app">
