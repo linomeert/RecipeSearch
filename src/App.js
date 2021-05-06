@@ -3,6 +3,7 @@ import React from "react";
 import SearchBar from "./components/SearchBar";
 import Recipes from "./components/Recipes";
 import Ingredients from "./components/Ingredients";
+import LoadRecipesButton from "./components/LoadRecipesButton";
 
 class App extends React.Component {
   state = {
@@ -14,6 +15,11 @@ class App extends React.Component {
     const ingredients = { ...this.state.ingredients };
     ingredients[ing.name] = ing;
     this.setState({ ingredients });
+  };
+
+  loadRecipes = () => {
+    console.log("hello");
+    console.log(this.state.ingredients);
   };
 
   componentDidMount() {
@@ -31,13 +37,18 @@ class App extends React.Component {
     return (
       <div className="recipe-app">
         <div className="ingredients">
-          <h2>Ingredients</h2>
-          <SearchBar addIngredient={this.addIngredient} />
-          <Ingredients ingredients={this.state.ingredients} />
+          <div className="container">
+            <h2>Ingredients</h2>
+            <SearchBar addIngredient={this.addIngredient} />
+            <Ingredients ingredients={this.state.ingredients} />
+            <LoadRecipesButton loadRecipes={this.loadRecipes} />
+          </div>
         </div>
         <div className="recipes">
-          <h2>Recipes</h2>
-          <Recipes />
+          <div className="container">
+            <h2>Recipes</h2>
+            <Recipes />
+          </div>
         </div>
       </div>
     );

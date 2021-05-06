@@ -25,6 +25,7 @@ class SearchBar extends React.Component {
   };
 
   clearSearchResults = () => {
+    console.log("hello");
     const searchResults = {};
     this.setState({ searchResults });
   };
@@ -32,8 +33,8 @@ class SearchBar extends React.Component {
   handleKeyDown = (e) => {
     if (e.key === "Enter" && e.currentTarget.dataset.item) {
       this.props.addIngredient(JSON.parse(e.currentTarget.dataset.item));
-      e.currentTarget.value = "";
       this.clearSearchResults();
+      e.currentTarget.value = "";
     }
   };
 
@@ -59,6 +60,7 @@ class SearchBar extends React.Component {
               key={searchResults[key].name}
               searchResult={searchResults[key]}
               addIngredient={this.props.addIngredient}
+              clearSearchResults={this.clearSearchResults}
             />
           ))}
         </ul>

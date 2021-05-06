@@ -6,11 +6,11 @@ class Ingredient extends React.Component {
     console.log(this.props.ingredient.name);
     return (
       <li>
+        <img
+          className="ingredient-pic"
+          src={imgUrl + this.props.ingredient.image}
+        ></img>
         <span>{this.props.ingredient.name}</span>
-        <img src={imgUrl + this.props.ingredient.image}></img>
-        <span data-key={this.props.ingredient.name} className="remove">
-          -
-        </span>
       </li>
     );
   }

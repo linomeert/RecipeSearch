@@ -3,6 +3,7 @@ import React from "react";
 
 class SearchResult extends React.Component {
   handleClick = (e) => {
+    this.props.clearSearchResults();
     this.props.addIngredient(JSON.parse(e.currentTarget.dataset.item));
   };
   render() {
@@ -13,6 +14,7 @@ class SearchResult extends React.Component {
         onClick={this.handleClick}
       >
         <img
+          className="ingredient-pic"
           src={imgUrl + this.props.searchResult.image}
           alt={this.props.searchResult.name}
         ></img>

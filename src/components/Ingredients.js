@@ -6,7 +6,7 @@ class Ingredients extends React.Component {
     const ingredients = this.props.ingredients;
 
     return (
-      <ul>
+      <ul className="selected-ingredients">
         {Object.keys(ingredients).map((key) => (
           <Ingredient
             key={ingredients[key].name}
