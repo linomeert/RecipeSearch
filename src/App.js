@@ -18,8 +18,20 @@ class App extends React.Component {
   };
 
   loadRecipes = () => {
-    console.log("hello");
-    console.log(this.state.ingredients);
+    const APIKEY = "540815f48fa1457791cc375205109fa9";
+    const recepiesString = Object.keys(this.state.ingredients).map(
+      (key) => key
+    );
+    const formatString = recepiesString.join(",+");
+
+    const searchEndpoint = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${formatString}&number=5`;
+    fetch(searchEndpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+        this.setState({ recipes: data });
+      });
   };
 
   componentDidMount() {
@@ -47,7 +59,7 @@ class App extends React.Component {
         <div className="recipes">
           <div className="container">
             <h2>Recipes</h2>
-            <Recipes />
+            <Recipes recipes={this.state.recipes} />
           </div>
         </div>
       </div>
