@@ -17,6 +17,13 @@ class App extends React.Component {
     this.setState({ ingredients });
   };
 
+  removeIngredient = (e) => {
+    const ingredients = { ...this.state.ingredients };
+    ingredients[e.currentTarget.dataset.item] = null;
+    console.log(ingredients);
+    this.setState({ ingredients });
+  };
+
   loadRecipes = () => {
     const APIKEY = "540815f48fa1457791cc375205109fa9";
     const recepiesString = Object.keys(this.state.ingredients).map(
@@ -50,7 +57,10 @@ class App extends React.Component {
           <div className="container">
             <h2>Ingredients</h2>
             <SearchBar addIngredient={this.addIngredient} />
-            <Ingredients ingredients={this.state.ingredients} />
+            <Ingredients
+              ingredients={this.state.ingredients}
+              removeIngredient={this.removeIngredient}
+            />
             <LoadRecipesButton loadRecipes={this.loadRecipes} />
           </div>
         </div>

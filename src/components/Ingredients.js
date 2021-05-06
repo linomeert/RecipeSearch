@@ -7,12 +7,17 @@ class Ingredients extends React.Component {
 
     return (
       <ul className="selected-ingredients">
-        {Object.keys(ingredients).map((key) => (
-          <Ingredient
-            key={ingredients[key].name}
-            ingredient={ingredients[key]}
-          />
-        ))}
+        {Object.keys(ingredients).map((key) =>
+          this.props.ingredients[key] ? (
+            <Ingredient
+              key={ingredients[key].name}
+              ingredient={ingredients[key]}
+              removeIngredient={this.props.removeIngredient}
+            />
+          ) : (
+            ""
+          )
+        )}
       </ul>
     );
   }

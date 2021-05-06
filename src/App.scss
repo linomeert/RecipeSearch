@@ -41,6 +41,7 @@ body {
     position: absolute;
     background: #fbfbfb;
     border-radius: 30px;
+    z-index: 2;
 
     li {
       list-style: none;
@@ -89,6 +90,32 @@ body {
   font-size: 12px;
   margin: 5px 5px 5px 0px;
   box-shadow: 5px 5px 20px #e8e8e8;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    span.Remove {
+      opacity: 0.6;
+    }
+  }
+
+  span.Remove {
+    color: white;
+    top: 0;
+    position: absolute;
+    background: black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.1s ease-out;
+    cursor: pointer;
+  }
 }
 
 .found-recipes {
@@ -122,5 +149,25 @@ body {
         display: none;
       }
     }
+  }
+}
+
+button {
+  border: 0px;
+  padding: 12px 32px;
+  background: #dce659;
+  border-radius: 20px;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .ingredients {
+    width: 100%;
+  }
+  .recipes {
+    width: 100%;
   }
 }
