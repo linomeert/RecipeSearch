@@ -1,21 +1,28 @@
 import React from "react";
+import Ingredient from "./Ingredient";
 
 class Recipe extends React.Component {
   render() {
-    const imgUrl = "https://spoonacular.com/cdn/ingredients_100x100/";
-    console.log(this.props.ingredient.name);
+    const { title, image, usedIngredients } = this.props.recipe;
     return (
-    <div style={{ 
-        backgroundImage: `url(${recipes[key].image})`,
+      <div
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
         className="recipe-cart"
-    }}>
+      >
         <div className="cart-content">
-            <h3>{recipes[key].title}</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <h4>{title}</h4>
+          <div className="used-ingredients">
+            {Object.keys(usedIngredients).map((key) => (
+              <Ingredient
+                key={usedIngredients[key].name}
+                ingredient={usedIngredients[key]}
+              />
+            ))}
+          </div>
         </div>
-    </div>
-
-      
+      </div>
     );
   }
 }

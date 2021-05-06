@@ -24,12 +24,10 @@ class App extends React.Component {
     );
     const formatString = recepiesString.join(",+");
 
-    const searchEndpoint = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${formatString}&number=5`;
+    const searchEndpoint = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${formatString}&number=10`;
     fetch(searchEndpoint)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         this.setState({ recipes: data });
       });
   };
