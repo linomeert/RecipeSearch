@@ -21,11 +21,11 @@ class App extends React.Component {
     if (localStorageRef) {
       this.setState({ ingredients: JSON.parse(localStorageRef) });
     }
-  };
+  }
 
   componentDidUpdate() {
     localStorage.setItem("ingredients", JSON.stringify(this.state.ingredients));
-  };
+  }
 
   render() {
     return (
@@ -33,7 +33,7 @@ class App extends React.Component {
         <div className="ingredients">
           <h2>Ingredients</h2>
           <SearchBar addIngredient={this.addIngredient} />
-          <Ingredients />
+          <Ingredients ingredients={this.state.ingredients} />
         </div>
         <div className="recipes">
           <h2>Recipes</h2>
