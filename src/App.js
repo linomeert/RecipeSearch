@@ -11,11 +11,20 @@ class App extends React.Component {
   };
 
   addIngredient = (ing) => {
-    console.log(ing);
     const ingredients = { ...this.state.ingredients };
     ingredients[ing.name] = ing;
-    console.log(ingredients);
     this.setState({ ingredients });
+  };
+
+  componentDidMount() {
+    const localStorageRef = localStorage.getItem("ingredients");
+    if (localStorageRef) {
+      this.setState({ ingredients: JSON.parse(localStorageRef) });
+    }
+  };
+
+  componentDidUpdate() {
+    localStorage.setItem("ingredients", JSON.stringify(this.state.ingredients));
   };
 
   render() {
