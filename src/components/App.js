@@ -1,9 +1,10 @@
-import "./App.scss";
+import "../App.scss";
 import React from "react";
-import SearchBar from "./components/SearchBar";
-import Recipes from "./components/Recipes";
-import Ingredients from "./components/Ingredients";
-import LoadRecipesButton from "./components/LoadRecipesButton";
+import SearchBar from "./SearchBar";
+import Recipes from "./Recipes";
+
+import Ingredients from "./Ingredients";
+import LoadRecipesButton from "./LoadRecipesButton";
 
 class App extends React.Component {
   state = {
@@ -38,6 +39,16 @@ class App extends React.Component {
       });
   };
 
+  getRecipeInfo = (id) => {
+    const APIKEY = "540815f48fa1457791cc375205109fa9";
+    const searchEndpoint = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${APIKEY}`;
+    fetch(searchEndpoint)
+      .then((response) => response.json())
+      .then((selectedRecipe) => {
+        this.setState({ selectedRecipe });
+      });
+  };
+
   componentDidMount() {
     const localStorageRef = localStorage.getItem("ingredients");
     if (localStorageRef) {
@@ -52,7 +63,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="recipe-app">
-        <div className="ingredients">
+        <div className="sidebar">
           <div className="container">
             <h2>Ingredients</h2>
             <SearchBar addIngredient={this.addIngredient} />
@@ -66,11 +77,11 @@ class App extends React.Component {
             />
           </div>
         </div>
-        <div className="recipes">
-          <div className="container">
-            <h2>Recipes</h2>
-            <Recipes recipes={this.state.recipes} />
-          </div>
+        <div className="main-content">
+          <Recipes
+            getRecipeInfo={this.getRecipeInfo}
+            recipes={this.state.recipes}
+          />
         </div>
       </div>
     );

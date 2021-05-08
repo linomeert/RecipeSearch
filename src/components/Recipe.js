@@ -1,11 +1,24 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class Recipe extends React.Component {
+  handleClick = (e) => {
+    e.preventDefault();
+    this.props.history.push(`/recipes/${e.currentTarget.dataset.id}`);
+  };
+
   render() {
-    const { title, image, usedIngredients } = this.props.recipe;
+    const { title, image, usedIngredients, id } = this.props.recipe;
     return (
       <div className="card-product">
-        <img src={image} />
+        <a
+          href=""
+          onClick={this.handleClick}
+          className="go-to-recipe"
+          data-id={id}
+        >
+          <img src={image} />
+        </a>
         <div className="card-product-infos">
           <h2>{title}</h2>
           <ul className="ingredients-in-recipe">
@@ -21,4 +34,4 @@ class Recipe extends React.Component {
   }
 }
 
-export default Recipe;
+export default withRouter(Recipe);

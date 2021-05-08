@@ -5,10 +5,10 @@ body {
   display: flex;
   padding: 20px;
 
-  .ingredients {
+  .sidebar {
     width: 30%;
   }
-  .recipes {
+  .main-content {
     width: 70%;
     height: auto;
     background: white;
@@ -20,6 +20,17 @@ body {
 h4,
 ul {
   margin: 0px;
+}
+
+p {
+  color: #2d2d2d;
+  font-size: 13px;
+  line-height: 22px;
+}
+
+a {
+  color: #4b6912;
+  text-decoration: none;
 }
 
 .container {
@@ -213,5 +224,17 @@ button {
 
   .card-product-infos {
     padding: 16px;
+  }
+}
+
+.detail {
+  .recipe-intro {
+    display: flex;
+    img {
+      width: 30%;
+      height: fit-content;
+      border-radius: 20px;
+      margin: 20px;
+    }
   }
 }

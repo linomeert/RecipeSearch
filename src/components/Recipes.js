@@ -8,10 +8,17 @@ class Recipes extends React.Component {
       <span className="message">Add some ingredients to find recipes!</span>;
     }
     return (
-      <div className="found-recipes">
-        {Object.keys(recipes).map((key) => (
-          <Recipe key={key} recipe={recipes[key]} />
-        ))}
+      <div className="container">
+        <h2>Recipes</h2>
+        <div className="found-recipes">
+          {Object.keys(recipes).map((key) => (
+            <Recipe
+              getRecipeInfo={this.props.getRecipeInfo}
+              key={key}
+              recipe={recipes[key]}
+            />
+          ))}
+        </div>
       </div>
     );
   }
