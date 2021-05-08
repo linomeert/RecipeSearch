@@ -19,8 +19,7 @@ class App extends React.Component {
 
   removeIngredient = (e) => {
     const ingredients = { ...this.state.ingredients };
-    ingredients[e.currentTarget.dataset.item] = null;
-    console.log(ingredients);
+    delete ingredients[e.currentTarget.dataset.item];
     this.setState({ ingredients });
   };
 
@@ -61,7 +60,10 @@ class App extends React.Component {
               ingredients={this.state.ingredients}
               removeIngredient={this.removeIngredient}
             />
-            <LoadRecipesButton loadRecipes={this.loadRecipes} />
+            <LoadRecipesButton
+              loadRecipes={this.loadRecipes}
+              ingredients={this.state.ingredients}
+            />
           </div>
         </div>
         <div className="recipes">

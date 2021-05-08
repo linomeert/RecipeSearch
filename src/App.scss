@@ -138,11 +138,17 @@ body {
   display: flex;
   align-items: flex-end;
   box-shadow: 5px 5px 20px #e8e8e8;
+
   .cart-content {
     background: white;
     margin: 14px;
     border-radius: 30px;
+    transition: all 0.2s ease-out;
     padding: 20px;
+
+    &:hover {
+      background: #dce659;
+    }
 
     .ingredient {
       img {
@@ -170,4 +176,16 @@ button {
   .recipes {
     width: 100%;
   }
+}
+
+.message {
+  background: #f4f3ef;
+  border: 1px solid #e6e6e6;
+  padding: 11px 32px;
+  border-radius: 60px;
+  color: #5a5a5a;
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
 }
