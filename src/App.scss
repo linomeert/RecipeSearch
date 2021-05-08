@@ -17,6 +17,11 @@ body {
   }
 }
 
+h4,
+ul {
+  margin: 0px;
+}
+
 .container {
   padding: 20px;
 }
@@ -120,42 +125,14 @@ body {
 
 .found-recipes {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 10px 30px;
   gap: 10px 30px;
   padding: 20px;
   height: 79vh;
   width: 100%;
   overflow-y: scroll;
-}
-
-.recipe-cart {
-  border-radius: 50px;
-  background-position: center center;
-  background-size: cover;
-  height: 320px;
-  display: flex;
-  align-items: flex-end;
-  box-shadow: 5px 5px 20px #e8e8e8;
-
-  .cart-content {
-    background: white;
-    margin: 14px;
-    border-radius: 30px;
-    transition: all 0.2s ease-out;
-    padding: 20px;
-
-    &:hover {
-      background: #dce659;
-    }
-
-    .ingredient {
-      img {
-        display: none;
-      }
-    }
-  }
 }
 
 button {
@@ -188,4 +165,53 @@ button {
   margin-top: 10px;
   font-size: 12px;
   text-align: center;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 5px 5px 20px #e8e8e8;
+  display: flex;
+  align-items: flex-start;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background: #dce659;
+  }
+
+  img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: 3px;
+
+    li {
+      font-size: 12px;
+      line-height: 1.4;
+      opacity: 0.7;
+      margin-bottom: 0;
+      margin-top: 8px;
+      list-style: none;
+      margin: 3px;
+      background: #f4f3ef;
+      padding: 3px;
+    }
+  }
+
+  .card-product-infos {
+    padding: 16px;
+  }
 }
