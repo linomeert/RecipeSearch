@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "http://linomeert.github.io/RecipeSearch",
+  "homepage": "https://linomeert.github.io/RecipeSearch/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
