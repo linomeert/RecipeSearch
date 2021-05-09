@@ -50,38 +50,50 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    const localStorageRef = localStorage.getItem("ingredients");
-    if (localStorageRef) {
-      this.setState({ ingredients: JSON.parse(localStorageRef) });
+    const localStorageIngredients = localStorage.getItem("ingredients");
+    const localStorageRecipes = localStorage.getItem("recipes");
+
+    if (localStorageIngredients) {
+      this.setState({
+        ingredients: JSON.parse(localStorageIngredients),
+      });
+    }
+    if (localStorageRecipes) {
+      this.setState({
+        recipes: JSON.parse(localStorageRecipes),
+      });
     }
   }
 
   componentDidUpdate() {
     localStorage.setItem("ingredients", JSON.stringify(this.state.ingredients));
+    localStorage.setItem("recipes", JSON.stringify(this.state.recipes));
   }
 
   render() {
     return (
       <div className="recipe-app">
-        <div className="sidebar">
-          <div className="container">
-            <h2>Ingredients</h2>
-            <SearchBar addIngredient={this.addIngredient} />
-            <Ingredients
-              ingredients={this.state.ingredients}
-              removeIngredient={this.removeIngredient}
-            />
-            <LoadRecipesButton
-              loadRecipes={this.loadRecipes}
-              ingredients={this.state.ingredients}
+        <div className="flex-container">
+          <div className="sidebar">
+            <div className="container">
+              <h2>Ingredients</h2>
+              <SearchBar addIngredient={this.addIngredient} />
+              <Ingredients
+                ingredients={this.state.ingredients}
+                removeIngredient={this.removeIngredient}
+              />
+              <LoadRecipesButton
+                loadRecipes={this.loadRecipes}
+                ingredients={this.state.ingredients}
+              />
+            </div>
+          </div>
+          <div className="main-content">
+            <Recipes
+              getRecipeInfo={this.getRecipeInfo}
+              recipes={this.state.recipes}
             />
           </div>
-        </div>
-        <div className="main-content">
-          <Recipes
-            getRecipeInfo={this.getRecipeInfo}
-            recipes={this.state.recipes}
-          />
         </div>
       </div>
     );

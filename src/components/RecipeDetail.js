@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 class RecipeDetail extends React.Component {
   state = {
@@ -343,34 +345,95 @@ class RecipeDetail extends React.Component {
       summary,
       //instructions,
       image,
-      //readyInMinutes,
-      //servings,
+      readyInMinutes,
+      servings,
       //sourceUrl,
-      //spoonacularScore,
-      //summary,
-      //vegetarian,
-      //vegan,
+      spoonacularScore,
+      vegetarian,
+      vegan,
+      extendedIngredients,
     } = this.state.selectedRecipe;
+
     return (
       <div className="recipe-app detail">
-        <div className="sidebar">
-          <div className="container">
-            <button onClick={() => this.props.history.push("/")}>
-              Go back
-            </button>
-          </div>
+        <div className="recipe-header">
+          <button onClick={() => this.props.history.push("/")}>Go back</button>
+          <br></br>
+          <button onClick={() => this.props.history.push("/")}>
+            Add to favorites
+          </button>
         </div>
-        <div className="main-content">
-          <div className="container recipe-intro">
+        <div className="recipe-intro">
+          <div className="sidebar-detail">
+            <ul className="info">
+              <li>
+                <span>
+                  <FontAwesomeIcon icon={faClock} />
+                </span>
+                Ready in {readyInMinutes} minutes
+              </li>
+              <li>
+                {" "}
+                <span>
+                  <FontAwesomeIcon icon={faClock} />
+                </span>
+                {servings} servings
+              </li>
+              {vegetarian ? (
+                <li>
+                  {" "}
+                  <span>
+                    <FontAwesomeIcon icon={faClock} />
+                  </span>
+                  Vegetarian
+                </li>
+              ) : (
+                ""
+              )}
+              {vegan ? (
+                <li>
+                  {" "}
+                  <span>
+                    <FontAwesomeIcon icon={faClock} />
+                  </span>
+                  vegan
+                </li>
+              ) : (
+                ""
+              )}
+              <li>
+                {" "}
+                <span>
+                  <FontAwesomeIcon icon={faClock} />
+                </span>
+                {spoonacularScore}/100
+              </li>
+            </ul>
+          </div>
+          <div className="details">
             <img src={image}></img>
-            <div>
-              <h2>{title}</h2>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: summary,
-                }}
-              ></p>
-            </div>
+            <h3>Ingredients:</h3>
+            <ul className="detailed-ingredients">
+              {Object.keys(extendedIngredients).map((key) => (
+                <li key={extendedIngredients[key].name}>
+                  <p>
+                    {extendedIngredients[key].measures.metric.amount}
+                    {extendedIngredients[key].measures.metric.unitShort} of{" "}
+                    <span className="strong ">
+                      {extendedIngredients[key].name}
+                    </span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="desc">
+            <h2>{title}</h2>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: summary,
+              }}
+            ></p>
           </div>
         </div>
       </div>

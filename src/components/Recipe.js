@@ -21,7 +21,7 @@ class Recipe extends React.Component {
         </a>
         <div className="card-product-infos">
           <h2>{title}</h2>
-          <ul className="ingredients-in-recipe">
+          <ul className="recipe-ingredients">
             {Object.keys(usedIngredients).map((key) => (
               <li key={usedIngredients[key].name}>
                 {usedIngredients[key].name}
