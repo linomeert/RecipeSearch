@@ -1,10 +1,14 @@
 import React from "react";
+import Header from "./Header";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
-import { faUtensilSpoon } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { faLeaf } from "@fortawesome/free-solid-svg-icons";
-import { faLemon } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClock,
+  faUtensilSpoon,
+  faStar,
+  faLeaf,
+  faLemon,
+} from "@fortawesome/free-solid-svg-icons";
 
 class RecipeDetail extends React.Component {
   state = {
@@ -48,6 +52,8 @@ class RecipeDetail extends React.Component {
 
     return (
       <div className="recipe-app detail">
+        <Header />
+
         <div className="recipe-header">
           <button onClick={() => this.props.history.push("/")}>Go back</button>
           <br></br>

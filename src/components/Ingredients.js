@@ -4,7 +4,7 @@ import Ingredient from "./Ingredient";
 class Ingredients extends React.Component {
   render() {
     const ingredients = this.props.ingredients;
-    console.log(Object.keys(ingredients).length === 0);
+    console.log("render ingredients");
     if (Object.keys(ingredients).length === 0) {
       return (
         <span className="message">Add some ingredients to find recipes!</span>

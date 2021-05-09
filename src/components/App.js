@@ -2,6 +2,7 @@ import "../App.scss";
 import React from "react";
 import SearchBar from "./SearchBar";
 import Recipes from "./Recipes";
+import Header from "./Header";
 
 import Ingredients from "./Ingredients";
 import LoadRecipesButton from "./LoadRecipesButton";
@@ -15,6 +16,10 @@ class App extends React.Component {
 
   addIngredient = (ing) => {
     const ingredients = { ...this.state.ingredients };
+
+    if (ingredients[ing.name]) {
+      return null;
+    }
     ingredients[ing.name] = ing;
     this.setState({ ingredients });
   };
@@ -25,7 +30,7 @@ class App extends React.Component {
     this.setState({ ingredients });
   };
 
-  loadRecipes = () => {
+  loadRecipes = (ignorePantry) => {
     const APIKEY = process.env.REACT_APP_API_KEY;
     const recepiesString = Object.keys(this.state.ingredients).map(
       (key) => key
@@ -33,7 +38,7 @@ class App extends React.Component {
     const formatString = recepiesString.join(",+");
     const NUMBER = 40;
 
-    const searchEndpoint = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${formatString}&number=${NUMBER}`;
+    const searchEndpoint = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${formatString}&number=${NUMBER}&ignorePantry=${ignorePantry}`;
     fetch(searchEndpoint)
       .then((response) => response.json())
       .then((data) => {
@@ -65,6 +70,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="recipe-app">
+        <Header />
         <div className="flex-container">
           <div className="sidebar">
             <div className="container">

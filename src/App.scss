@@ -7,6 +7,20 @@ $background: #f4f3ef;
 body {
   background: $background;
 }
+
+header.top {
+  background: white;
+  padding: 2px 39px;
+  border-bottom: 1px solid $light-color;
+}
+
+.check {
+  margin: 15px 0px;
+  input[type="checkbox"] {
+    margin-left: 5px;
+  }
+}
+
 .flex-container {
   display: flex;
   padding: 20px;
@@ -61,8 +75,9 @@ a {
     padding: 0;
     width: 100%;
     position: absolute;
-    background: $light-color;
+    background: white;
     border-radius: 30px;
+    overflow: hidden;
     z-index: 2;
 
     li {
@@ -258,8 +273,9 @@ ul.recipe-ingredients {
     width: 60%;
     margin: auto;
     background: white;
-    box-shadow: 5px 5px 20px $light-color;
     border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
 
     .details {
       width: 30%;
@@ -368,7 +384,7 @@ ol {
   }
 }
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 1250px) {
   .detail {
     .recipe-header {
       width: 90%;
