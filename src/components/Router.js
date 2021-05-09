@@ -5,7 +5,7 @@ import NotFound from "./NotFound";
 import RecipeDetail from "./RecipeDetail";
 
 const Router = () => (
-  <BrowserRouter basename={"/RecipeSearch"}>
+  <BrowserRouter>
     <Switch>
       <Route exact path="/" component={App} />
       <Route exact path="/recipes/:recipeId" component={RecipeDetail} />
