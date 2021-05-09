@@ -1,5 +1,11 @@
+$text-color: #2d2d2d;
+$accent-color: #dce659;
+$darker-accent-color: #d2db4c;
+$light-color: #e0e0e0;
+$background: #f4f3ef;
+
 body {
-  background: #f4f3ef;
+  background: $background;
 }
 .flex-container {
   display: flex;
@@ -12,8 +18,8 @@ body {
     width: 70%;
     height: auto;
     background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 75px 75px 5px 5px;
+    border: 1px solid $light-color;
+    border-radius: 25px;
   }
 }
 
@@ -23,13 +29,13 @@ ul {
 }
 
 p {
-  color: #2d2d2d;
+  color: $text-color;
   font-size: 13px;
   line-height: 22px;
 }
 
 a {
-  color: #4b6912;
+  color: $darker-accent-color;
   text-decoration: none;
 }
 
@@ -44,7 +50,7 @@ a {
     width: 100%;
     padding: 15px;
     border-radius: 40px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid $light-color;
     outline: none;
     box-sizing: border-box;
   }
@@ -55,7 +61,7 @@ a {
     padding: 0;
     width: 100%;
     position: absolute;
-    background: #fbfbfb;
+    background: $light-color;
     border-radius: 30px;
     z-index: 2;
 
@@ -67,7 +73,7 @@ a {
       padding: 10px;
       cursor: pointer;
       &:hover {
-        background: #e2e2e2;
+        background: $light-color;
       }
     }
   }
@@ -84,8 +90,8 @@ a {
   padding: 20px 0px;
   display: flex;
   flex-wrap: wrap;
-  border-top: 1px solid #e4e4e4;
-  border-bottom: 1px solid #e4e4e4;
+  border-top: 1px solid $light-color;
+  border-bottom: 1px solid $light-color;
   margin: 20px 0px;
 }
 
@@ -100,18 +106,18 @@ a {
   justify-content: space-evenly;
   align-items: center;
   background: #ffffff;
-  border: 1px solid #f1f1f1;
+  border: 1px solid $light-color;
   padding: 1px 10px;
   border-radius: 40px;
   font-size: 12px;
   margin: 5px 5px 5px 0px;
-  box-shadow: 5px 5px 20px #e8e8e8;
+  box-shadow: 5px 5px 20px $light-color;
   position: relative;
   overflow: hidden;
 
   &:hover {
     span.Remove {
-      opacity: 0.6;
+      opacity: 1;
     }
   }
 
@@ -119,7 +125,7 @@ a {
     color: white;
     top: 0;
     position: absolute;
-    background: black;
+    background: $darker-accent-color;
     bottom: 0;
     left: 0;
     right: 0;
@@ -136,34 +142,25 @@ a {
 
 .found-recipes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 10px 30px;
   gap: 10px 30px;
-  padding: 20px;
-  height: 79vh;
   width: 100%;
   overflow-y: scroll;
+  padding: 10px;
+  height: 80vh;
 }
 
 button {
   border: 0px;
   padding: 12px 32px;
-  background: #dce659;
+  background: $accent-color;
   border-radius: 20px;
   font-size: 16px;
   color: white;
   font-weight: 600;
   cursor: pointer;
-}
-
-@media only screen and (max-width: 800px) {
-  .ingredients {
-    width: 100%;
-  }
-  .recipes {
-    width: 100%;
-  }
 }
 
 .message {
@@ -180,7 +177,8 @@ button {
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: auto;
+  min-height: 130px;
   background: white;
   box-shadow: 5px 5px 20px #e8e8e8;
   display: flex;
@@ -189,6 +187,32 @@ button {
 
   &:hover {
     background: #dce659;
+
+    .go-to-recipe {
+      span {
+        opacity: 1;
+      }
+    }
+  }
+
+  .go-to-recipe {
+    position: relative;
+    height: 100%;
+    span {
+      transition: all 0.2s ease-out;
+      opacity: 0;
+      display: flex;
+      background: $accent-color;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+    }
   }
 
   img {
@@ -231,13 +255,14 @@ ul.recipe-ingredients {
 .detail {
   .recipe-intro {
     display: flex;
-    width: 70%;
+    width: 60%;
     margin: auto;
     background: white;
-    box-shadow: 5px 5px 20px #e8e8e8;
+    box-shadow: 5px 5px 20px $light-color;
+    border-radius: 20px;
 
     .details {
-      width: 50%;
+      width: 30%;
       padding: 50px;
 
       ul.info {
@@ -264,7 +289,7 @@ ul.recipe-ingredients {
       }
     }
     .desc {
-      width: 50%;
+      width: 70%;
       padding: 30px;
     }
   }
@@ -303,7 +328,7 @@ ul.recipe-ingredients {
 }
 
 .sidebar-detail {
-  background: #5d6d0a;
+  background: $darker-accent-color;
   ul {
     padding: 0px;
     li {
@@ -323,11 +348,69 @@ ul.recipe-ingredients {
 
 .recipe-header {
   display: flex;
-  width: 70%;
+  width: 60%;
   margin: auto;
   padding: 20px 50px;
 
   button {
     margin-right: 10px;
+  }
+}
+
+ol {
+  padding: 16px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .found-recipes {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .detail {
+    .recipe-header {
+      width: 90%;
+    }
+    .recipe-intro {
+      width: 90%;
+    }
+  }
+  .found-recipes {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .detail {
+    .recipe-header {
+      width: 90%;
+      padding: 20px 0px;
+    }
+    .recipe-intro {
+      width: 90%;
+      display: inherit;
+
+      .details,
+      .desc {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+    }
+  }
+
+  .flex-container {
+    .found-recipes {
+      height: 40vh;
+    }
+    display: inherit;
+
+    .sidebar,
+    .main-content {
+      width: 100%;
+    }
   }
 }

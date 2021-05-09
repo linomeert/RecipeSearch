@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
   }
 
   searchIngredients = () => {
-    const APIKEY = "540815f48fa1457791cc375205109fa9";
+    const APIKEY = process.env.REACT_APP_API_KEY;
     const query = this.queryRef.current.value;
     const searchEndpoint = `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIKEY}&query=${query}&number=3`;
     fetch(searchEndpoint)

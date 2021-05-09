@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 
 class Recipe extends React.Component {
   handleClick = (e) => {
@@ -17,6 +19,9 @@ class Recipe extends React.Component {
           className="go-to-recipe"
           data-id={id}
         >
+          <span>
+            <FontAwesomeIcon icon={faSearchPlus} />
+          </span>
           <img src={image} />
         </a>
         <div className="card-product-infos">

@@ -10,6 +10,7 @@ class App extends React.Component {
   state = {
     ingredients: {},
     recipes: {},
+    favorites: {},
   };
 
   addIngredient = (ing) => {
@@ -25,27 +26,18 @@ class App extends React.Component {
   };
 
   loadRecipes = () => {
-    const APIKEY = "540815f48fa1457791cc375205109fa9";
+    const APIKEY = process.env.REACT_APP_API_KEY;
     const recepiesString = Object.keys(this.state.ingredients).map(
       (key) => key
     );
     const formatString = recepiesString.join(",+");
+    const NUMBER = 40;
 
-    const searchEndpoint = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${formatString}&number=10`;
+    const searchEndpoint = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${formatString}&number=${NUMBER}`;
     fetch(searchEndpoint)
       .then((response) => response.json())
       .then((data) => {
         this.setState({ recipes: data });
-      });
-  };
-
-  getRecipeInfo = (id) => {
-    const APIKEY = "540815f48fa1457791cc375205109fa9";
-    const searchEndpoint = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${APIKEY}`;
-    fetch(searchEndpoint)
-      .then((response) => response.json())
-      .then((selectedRecipe) => {
-        this.setState({ selectedRecipe });
       });
   };
 
