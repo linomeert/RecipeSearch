@@ -19,13 +19,11 @@ class SearchBar extends React.Component {
     fetch(searchEndpoint)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         this.setState({ searchResults: data });
       });
   };
 
   clearSearchResults = () => {
-    console.log("hello");
     const searchResults = {};
     this.setState({ searchResults });
   };

@@ -3,7 +3,6 @@ import React from "react";
 class Ingredient extends React.Component {
   render() {
     const imgUrl = "https://spoonacular.com/cdn/ingredients_100x100/";
-    console.log("render ingredient");
     if (this.props.ingredient) {
       return (
         <li className="ingredient">
