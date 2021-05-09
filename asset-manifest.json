@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/linomeert/RecipeSearch/static/css/main.13963acc.chunk.css",
-    "main.js": "/linomeert/RecipeSearch/static/js/main.d70b6a6b.chunk.js",
-    "main.js.map": "/linomeert/RecipeSearch/static/js/main.d70b6a6b.chunk.js.map",
-    "runtime-main.js": "/linomeert/RecipeSearch/static/js/runtime-main.a2e56e72.js",
-    "runtime-main.js.map": "/linomeert/RecipeSearch/static/js/runtime-main.a2e56e72.js.map",
-    "static/js/2.1d22ce71.chunk.js": "/linomeert/RecipeSearch/static/js/2.1d22ce71.chunk.js",
-    "static/js/2.1d22ce71.chunk.js.map": "/linomeert/RecipeSearch/static/js/2.1d22ce71.chunk.js.map",
-    "static/js/3.5111231a.chunk.js": "/linomeert/RecipeSearch/static/js/3.5111231a.chunk.js",
-    "static/js/3.5111231a.chunk.js.map": "/linomeert/RecipeSearch/static/js/3.5111231a.chunk.js.map",
-    "index.html": "/linomeert/RecipeSearch/index.html",
-    "static/css/main.13963acc.chunk.css.map": "/linomeert/RecipeSearch/static/css/main.13963acc.chunk.css.map",
-    "static/js/2.1d22ce71.chunk.js.LICENSE.txt": "/linomeert/RecipeSearch/static/js/2.1d22ce71.chunk.js.LICENSE.txt"
+    "main.css": "/RecipeSearch/static/css/main.13963acc.chunk.css",
+    "main.js": "/RecipeSearch/static/js/main.d70b6a6b.chunk.js",
+    "main.js.map": "/RecipeSearch/static/js/main.d70b6a6b.chunk.js.map",
+    "runtime-main.js": "/RecipeSearch/static/js/runtime-main.0c50beff.js",
+    "runtime-main.js.map": "/RecipeSearch/static/js/runtime-main.0c50beff.js.map",
+    "static/js/2.1d22ce71.chunk.js": "/RecipeSearch/static/js/2.1d22ce71.chunk.js",
+    "static/js/2.1d22ce71.chunk.js.map": "/RecipeSearch/static/js/2.1d22ce71.chunk.js.map",
+    "static/js/3.5111231a.chunk.js": "/RecipeSearch/static/js/3.5111231a.chunk.js",
+    "static/js/3.5111231a.chunk.js.map": "/RecipeSearch/static/js/3.5111231a.chunk.js.map",
+    "index.html": "/RecipeSearch/index.html",
+    "static/css/main.13963acc.chunk.css.map": "/RecipeSearch/static/css/main.13963acc.chunk.css.map",
+    "static/js/2.1d22ce71.chunk.js.LICENSE.txt": "/RecipeSearch/static/js/2.1d22ce71.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a2e56e72.js",
+    "static/js/runtime-main.0c50beff.js",
     "static/js/2.1d22ce71.chunk.js",
     "static/css/main.13963acc.chunk.css",
     "static/js/main.d70b6a6b.chunk.js"
