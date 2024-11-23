@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => (
+const Header: React.FC = () => (
   <header className="top">
     <a href="/">
       <h1>RecipeFinder</h1>
